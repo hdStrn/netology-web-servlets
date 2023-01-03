@@ -2,6 +2,7 @@ package ru.netology.servlet;
 
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.netology.config.Config;
 import ru.netology.controller.PostController;
 import ru.netology.exception.NotFoundException;
 
@@ -18,7 +19,7 @@ public class MainServlet extends HttpServlet {
 
     @Override
     public void init() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("ru.netology");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         controller = context.getBean(PostController.class);
     }
 
